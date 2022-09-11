@@ -1,9 +1,9 @@
 class AuthorResource < Avo::BaseResource
-  self.title = :id
+  self.title = :first_name
   self.includes = []
-  # self.search_query = -> do
-  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
-  # end
+  self.search_query = -> do
+    scope.ransack(id_eq: params[:q],first_name_cont: params[:q], m: "or").result(distinct: false)
+  end
 
  
   field :id, as: :id
