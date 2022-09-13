@@ -8,4 +8,6 @@ class BookResource < Avo::BaseResource
   field :id, as: :id
   field :title, as: :text
   field :author, as: :belongs_to
+  field :photo, as: :file, is_image: true
+
 end

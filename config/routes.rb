@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  mount Avo::Engine, at: Avo.configuration.root_path
-
+  devise_for :users
+  
   root 'home#index'
-  get '/avo', to: 'home#index'
+  authenticate :user do 
+    mount Avo::Engine, at: Avo.configuration.root_path
+    get '/avo', to: 'home#index'
+  end
+  
 end
