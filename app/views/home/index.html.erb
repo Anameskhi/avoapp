@@ -1,4 +1,10 @@
-<h1 class="text-center">Welcome!</h1>
+<h1 class="text-center">Welcome!</h1><br>
 
 <%=link_to "Avo Admin panel", avo_path , class:"btn btn-dark"%>
+<%if current_user.nil?%>
+<%= link_to "Sign in", new_user_session_path, method: "delete" , class:"btn btn-dark"%> 
+<li><%= link_to t("sign_up"), new_user_registration_path, class:"btn btn-dark" %>
+<%else%> 
+<%= button_to "Log out", destroy_user_session_path, method: "delete" , class:"btn btn-dark"%>
 
+<%end%>

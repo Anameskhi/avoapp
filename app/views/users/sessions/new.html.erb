@@ -1,26 +1,40 @@
-<h2>Log in</h2>
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow mb-5  bg-white rounded">
+<h2 class = "main-text">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+
+  
+  <div class="card-body">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="card-body">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="card-body">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="card-body">
+    <%= f.submit "Log in", class: "btn btn-dark" %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
+<div class="card-body">
+<%= link_to "Sign up", new_registration_path(resource_name),class: "btn btn-outline-dark" %>
+</div>
+<div class="card-body">
+<%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-outline-dark" %><br />
+</div>
+</div>
+    </div>
+    </div>
+  </div>
