@@ -1,68 +1,54 @@
- <section class="vh-100 bg-image"
-  style="background-color: CadetBlue">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-25 col-md-20 col-lg-10 col-xl-26">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
-             
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow mb-5  bg-white rounded">
+<h2 class = "main-text">Edit <%= current_user.full_name %>' s Profile</h2>
 
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
 
-   <h2 class="text-uppercase text-center mb-5"><%=t("edit_user") %> </h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-   
-      <div   class="card-body">
-        <%= f.label t("username"), class:"form-label" %><br />
-        <%= f.text_field :full_name, autofocus: true, autocomplete: "username", class:"form-control form-control-lg" %>
-      </div>
-
-      <div   class="card-body">
-        <%= f.label t("email") %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control form-control-lg"%>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div class="fw-bolder" >Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div   class="card-body">
-        <%= f.label t("password") %> <i class="fw-bolder"><%=t("leave_blank")%></i><br />
-        <%= f.password_field :password, autocomplete: "new-password", class:"form-control form-control-lg" %>
-        <% if @minimum_password_length %>
-         
-          <em class="fw-bolder"><%= @minimum_password_length %> <%=t("characters_minimum")%></em>
-        <% end %>
-      </div>
-
-      <div   class="card-body">
-        <%= f.label t("password_confirmation") %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control form-control-lg"%>
-      </div>
-
-      <div  class="card-body">
-        <%= f.label t("write_current_password") %> <i class="fw-bolder">(<%=t("current_password_needed")%>)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control form-control-lg"%>
-      </div>
-
-      <div class="card-body">
-        <%= f.submit t("edit"), class:"btn btn-success btn-block btn-lg gradient-custom-4 text-body" %>
-      </div>
-    <% end %>
-
-   
-    <div class="card-body">
-    <p><%= button_to t("delete_my_account"), registration_path(resource_name), data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-block btn-lg gradient-custom-4 ", method: :delete %></p>
+ <div class="card-body">
+    <strong><%= f.label :username %>:</strong><br />
+    <%= f.text_field :full_name, autofocus: true, autocomplete: "username", class: "form-control"  %>
   </div>
   <div class="card-body">
-    <%= link_to t("back"), :back, class: "btn btn-outline-success btn-block btn-lg gradient-custom-4 " %>
+    <strong><%= f.label :email %>:</strong><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="card-body">
+    <strong><%= f.label :password %></strong> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+    
+  </div>
+
+  <div class="card-body">
+    <strong><%= f.label :password_confirmation %></strong><% if @minimum_password_length %>
+    
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+  </div>
+
+  <div class="card-body">
+    <strong><%= f.label :current_password %></strong> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+  </div>
+
+  <div class="card-body">
+    <%= f.submit "Update", class: "btn btn-dark" %>
+  </div>
+<% end %>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%></p>
+
+<%= link_to "Back Your To Profile", :back, class: "btn btn-outline-dark" %>
+
+</div>
     </div>
-      </div>
     </div>
   </div>
-</div>
- </div>
-
-</section>
