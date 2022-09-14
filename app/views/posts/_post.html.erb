@@ -1,12 +1,32 @@
 <div id="<%= dom_id post %>">
-  <p>
+
+      
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+                  <h6 class="card-header font-italic">posted by <%=post.user.full_name%></h6>
+
+          <div class="card text-center  bg-white rounded">
     <strong>Title:</strong>
-    <%= post.title %>
-  </p>
 
   <p>
-    <strong>Body:</strong>
+    <%= post.title %>
+  </p>
+          <h6 class="card-header font-italic">Body:</h6>
+    <p>
     <%= post.body %>
   </p>
+</div>
+<div class="card-footer text-muted" >
+        <small>Created <%= time_ago_in_words(post.created_at) %> ago, 
+        edited <%= time_ago_in_words(post.updated_at) %> ago</small>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
 
 </div>

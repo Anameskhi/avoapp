@@ -7,7 +7,7 @@ class PostResource < Avo::BaseResource
 
   field :id, as: :id
   field :title, as: :text
-  field :body, as: :trix
+  field :body, as: :textarea
   field :user, as: :belongs_to
 
   # add fields here

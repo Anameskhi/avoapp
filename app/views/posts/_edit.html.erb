@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class ="card-body">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title , class: "form-control"%>
+  <div class= "card-body">
+    <%= form.label :title, style: "display: block"%>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class ="card-body">
+  <div class = "card-body">
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body, class: "form-control"  %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
  
 
   <div>
-    <%= form.submit "Create Post", class: 'btn btn-dark' %>
+    <%= form.submit "Edit Post", class: 'btn btn-dark' %>
   </div>
 <% end %>

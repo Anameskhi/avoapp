@@ -1,10 +1,19 @@
-<h1>Editing post</h1>
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow mb-5  bg-white rounded">
+<h2 class = "main-text">Editing post</h2>
 
-<%= render "form", post: @post %>
+
+<%= render "edit", post: @post %>
 
 <br>
 
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+<div class = "card-body">
+  <%= link_to "Show this post", show_post_path(@post), class: "btn btn-outline-dark" %> 
+  <%= link_to "Back to posts", posts_path , class: "btn btn-outline-dark"%>
+</div>
+</div>
+</div>
+</div>
 </div>

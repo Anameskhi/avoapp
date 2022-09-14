@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow mb-5  bg-white rounded">
+<h2 class = "main-text">Posts</h2>
 
-<h1>Posts</h1>
+<%# <p style="color: green"><%= notice %>
+
+
 
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
+    <p class = "card-body">
+      <%= link_to "Show this post", show_post_path(post), class: "btn btn-outline-dark" %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New post", new_post_path %>
+<p class = "card-body">
+<%= link_to "New post", new_post_path, class: "btn btn-dark" %>
+</p>
+</div>
+    </div>
+    </div>
+  </div>

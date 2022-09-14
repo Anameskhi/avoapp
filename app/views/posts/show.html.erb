@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class= "container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow mb-5  bg-white rounded">
+
 
 <%= render @post %>
-
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class = "card-body">
+  <%= link_to "Back to posts", posts_path, class: "btn btn-outline-dark" %>
+  </div>
+ <% if current_user && current_user.id == @post.user_id%>
+   <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-dark" %> <br>
+   <div class="card-body">
+  <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger" %>
+  </div>
+<%end%>
+</div>
+</div>
+</div>
+</div>
 </div>
