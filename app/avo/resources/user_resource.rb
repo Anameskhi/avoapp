@@ -1,9 +1,9 @@
 class UserResource < Avo::BaseResource
   self.title = :full_name
   self.includes = []
-  self.search_query = -> do
-    scope.ransack(id_eq: params[:q],full_name_cont: params[:q], m: "or").result(distinct: false)
-  end
+  self.search_query = lambda {
+    scope.ransack(id_eq: params[:q], full_name_cont: params[:q], m: 'or').result(distinct: false)
+  }
 
   field :id, as: :id
   field :email, as: :gravatar
@@ -12,8 +12,6 @@ class UserResource < Avo::BaseResource
   field :password, as: :text
 
   field :post, as: :has_many
-
-
 
   # add fields here
 end

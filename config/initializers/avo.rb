@@ -54,7 +54,6 @@ Avo.configure do |config|
   # config.resource_controls = :right
   # config.tabs_style = :tabs # can be :tabs or :pills
 
-
   ## == Breadcrumbs ==
   # config.display_breadcrumbs = true
   # config.set_initial_breadcrumbs do

@@ -7,6 +7,5 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.timestamps
     end
     add_index :books, :author_id
-
   end
 end
