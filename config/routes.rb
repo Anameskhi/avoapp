@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # scope :admin do
   get 'dashboard', to: 'avo/tools#dashboard'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   }
   get '/posts/show/:id', to: 'posts#show', as: :show_post
   get '/posts', to: 'posts#index'
+  get '/about', to: 'home#about', as: :about_page
 
   root 'home#index'
   authenticate :user do

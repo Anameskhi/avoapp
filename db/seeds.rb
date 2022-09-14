@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 author1 = Author.create(first_name: 'Maye', last_name: 'Musk', email: 'Maye@gmail.com')
 author2 = Author.create(first_name: ' Philip', last_name: 'Roth', email: 'Philip@gmail.com')
 author3 = Author.create(first_name: 'Mark', last_name: 'Twain', email: 'Mark@gmail.com')

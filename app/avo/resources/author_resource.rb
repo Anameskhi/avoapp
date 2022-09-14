@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthorResource < Avo::BaseResource
   self.title = :first_name
   self.includes = []

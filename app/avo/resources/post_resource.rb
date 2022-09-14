@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostResource < Avo::BaseResource
   self.title = :title
   self.includes = []
