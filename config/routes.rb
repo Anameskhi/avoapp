@@ -4,12 +4,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
 
   }
+  resources :posts
 
-  
+
   root 'home#index'
   authenticate :user do 
     mount Avo::Engine, at: Avo.configuration.root_path
-    get '/avo', to: 'home#index'
+
   end
   
 end
